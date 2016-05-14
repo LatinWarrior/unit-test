@@ -5,25 +5,27 @@ module.exports = function(config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
-
+        basePath: './',
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['mocha', 'chai', 'sinon'],
 
-
         // list of files / patterns to load in the browser
         files: [
             'bower_components/angular/angular.js',
             'bower_components/angular-mocks/angular-mocks.js',
-            'people/people.module.js',
-            'people/people.factory.js',
-            'people/people.controller.js',
-            'test/unit/**/*spec.js',
-            'people/**/*spec.js'
+            'src/**/*.module.js',
+            'src/**/*.js',
+            'src/**/*spec.js'
         ],
 
+        // client: {
+        //     mocha: {
+        //         reporter: 'html', // change Karma's debug.html to the mocha web reporter
+        //         ui: 'tdd'
+        //     }
+        // },
 
         // list of files to exclude
         exclude: [],
@@ -32,7 +34,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'people/**/*spec.js': ['browserify']
+            'src/**/*spec.js': ['browserify']
         },
 
 
