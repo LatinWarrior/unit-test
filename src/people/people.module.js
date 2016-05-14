@@ -2,6 +2,6 @@
 
     'use strict';
 
-    angular.module('myApp', []);
+    angular.module('people', ['visitor']);
 
 }());

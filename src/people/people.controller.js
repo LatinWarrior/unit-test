@@ -2,7 +2,7 @@
 
     'use strict';
 
-    angular.module('myApp').controller('PeopleController', PeopleController);
+    angular.module('people').controller('PeopleController', PeopleController);
 
     PeopleController.$inject = ['PeopleFactory'];
 

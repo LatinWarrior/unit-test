@@ -4,36 +4,41 @@
 
     describe('People', function() {
 
-        var PeopleFactory, visitor;
+        var PeopleFactory, VisitorFactory;
 
-        beforeEach(module('myApp'));
+        beforeEach(module('people'));
+        beforeEach(module('visitor'));
 
-        beforeEach(module(function($provide) {
-            visitor = {};
-            $provide.value('visitor', visitor);
-        }));
-
-        beforeEach(inject(function(_PeopleFactory_) {
+        beforeEach(inject(function(_PeopleFactory_, _VisitorFactory_) {
             PeopleFactory = _PeopleFactory_;
+            VisitorFactory = _VisitorFactory_;
         }));
 
         describe('Constructor', function() {
 
             it('assigns a name', function() {
-                expect(new PeopleFactory('Homer')).to.have.property('name', 'Homer');
+                PeopleFactory.setPerson('Homer');
+                expect(PeopleFactory.getPerson()).to.equal('Homer');
+            });
+
+            it('no assignment means name is undefined or null', function() {
+                //PeopleFactory.setPerson('Homer');
+                expect(PeopleFactory.getPerson()).to.be.null;
             });
         });
 
         describe('#greet', function() {
 
             it('greets UK visitors formally', function() {
-                visitor.country = 'UK';
-                expect(new PeopleFactory('Ian').greet()).to.equal('Good day to you, Ian.');
+                VisitorFactory.setCountry('UK');
+                PeopleFactory.setPerson('Ian');
+                expect(PeopleFactory.greet()).to.equal('Good day to you, Ian.');
             });
 
             it('greets other visitors informally', function() {
-                visitor.country = 'USA';
-                expect(new PeopleFactory('Homer').greet()).to.equal('Hey, Homer');
+                VisitorFactory.setCountry('USA');
+                PeopleFactory.setPerson('Homer');
+                expect(PeopleFactory.greet()).to.equal('Hey, Homer!');
             });
         });
     });

@@ -4,7 +4,7 @@
   "description": "Unit and integration tests with Karma, Jasmine, Protractor for AngularJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start karma.conf.js"
   },
   "keywords": [
     "Karma",
@@ -16,16 +16,22 @@
   "author": "Luis Blanco",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "jasmine": "^2.4.1",
     "karma": "^0.13.22",
     "karma-browserify": "^5.0.5",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^1.0.1",
+    "karma-html-detailed-reporter": "^1.1.8",
     "karma-jasmine": "^1.0.2",
     "karma-mocha": "^1.0.1",
+    "karma-phantomjs2-launcher": "^0.5.0",
     "karma-sinon": "^1.0.5",
+    "karma-spec-reporter": "0.0.26",
     "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "phantomjs2": "^2.2.0",
     "require": "^2.4.20",
     "requirejs": "^2.2.0",
     "sinon": "^1.17.4"

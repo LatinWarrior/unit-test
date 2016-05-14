@@ -6,7 +6,7 @@
 
         var controller;
 
-        beforeEach(module('myApp'));
+        beforeEach(module('people'));
 
         beforeEach(inject(function($controller) {
             controller = $controller('PeopleController', {
